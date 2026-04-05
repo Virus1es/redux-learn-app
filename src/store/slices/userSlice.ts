@@ -1,4 +1,5 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 import type {UserState} from "../../types/user.ts";
 
 
@@ -12,7 +13,7 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        fetchUsers(state, action: PayloadAction): UserState {
+        fetchUsers(state, action: PayloadAction<null>): UserState {
             return {
                 loading: true,
                 error: null,
