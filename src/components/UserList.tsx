@@ -1,9 +1,8 @@
 import React from 'react';
-import {useSelector} from "react-redux";
-import type {RootState} from "../types/root.ts";
+import {useAppSelector} from "../hooks/useAppSelector.ts";
 
 const UserList: React.FC = () => {
-    const state = useSelector.withTypes<RootState>()(state => state.user);
+    const state = useAppSelector(state => state.user);
     console.log(state);
 
     return (
