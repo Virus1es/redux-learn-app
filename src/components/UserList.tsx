@@ -2,8 +2,7 @@ import React from 'react';
 import {useAppSelector} from "../hooks/useAppSelector.ts";
 
 const UserList: React.FC = () => {
-    const state = useAppSelector(state => state.user);
-    console.log(state);
+    const {users, loading, error} = useAppSelector(state => state.user);
 
     return (
         <div>
