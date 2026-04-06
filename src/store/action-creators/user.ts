@@ -1,6 +1,6 @@
 import {fetchUsers, fetchUsersError, fetchUsersSuccess} from "../slices/userSlice.ts";
 import type {AppDispatch} from "../index.ts";
-import * as axios from "axios";
+import axios from "axios";
 
 export const fetchUsersAction = () => {
     return async (dispatch: AppDispatch) => {
