@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {useAppSelector} from "../hooks/useAppSelector.ts";
 import {useActions} from "../hooks/useActions.ts";
+import {setTodoPageAction} from "../store/action-creators/todo.ts";
 
 const TodoList: React.FC= () => {
     const {
@@ -11,7 +12,7 @@ const TodoList: React.FC= () => {
         limit
     } = useAppSelector(state => state.todo);
 
-    const {fetchTodosAction, setTodoPage} = useActions();
+    const {fetchTodosAction, setTodoPageAction} = useActions();
     
     const pages = [1, 2, 3, 4, 5];
 
@@ -36,7 +37,7 @@ const TodoList: React.FC= () => {
             <div style={{display: 'flex'}}>
                 {pages.map(p =>
                     <div key={p}
-                         onClick={() => setTodoPage(p)}
+                         onClick={() => setTodoPageAction(p)}
                          style={{
                              border: p === page ? '2px solid green' : '1px solid gray',
                              padding: 10,
