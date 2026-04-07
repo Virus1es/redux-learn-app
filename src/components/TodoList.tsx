@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useAppSelector} from "../hooks/useAppSelector.ts";
 import {useAppDispatch} from "../hooks/useAppDispatch.ts";
 import {fetchTodosAction} from "../store/action-creators/todo.ts";
+import {setTodoPage} from "../store/slices/todoSlice.ts";
 
 const TodoList: React.FC= () => {
     const {
@@ -13,10 +14,12 @@ const TodoList: React.FC= () => {
     } = useAppSelector(state => state.todo);
 
     const dispatch = useAppDispatch();
+    
+    const pages = [1, 2, 3, 4, 5];
 
     useEffect(() => {
         dispatch(fetchTodosAction(page, limit) as any);
-    }, []);
+    }, [page, limit]);
 
 
     if (loading) {
@@ -32,6 +35,21 @@ const TodoList: React.FC= () => {
             {todos.map(todo =>
                 <div key={todo.id}>{todo.id}. {todo.title}</div>
             )}
+            <div style={{display: 'flex'}}>
+                {pages.map(p =>
+                    <div key={p}
+                         onClick={() => dispatch(setTodoPage(p))}
+                         style={{
+                             border: p === page ? '2px solid green' : '1px solid gray',
+                             padding: 10,
+                             marginTop: 5,
+                             cursor: 'pointer',
+                         }}
+                    >
+                        {p}
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
