@@ -13,21 +13,21 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        fetchUsers(state, action: PayloadAction<null>): UserState {
+        fetchUsers(state: UserState, action: PayloadAction<null>): UserState {
             return {
                 loading: true,
                 error: null,
                 users: []
             };
         },
-        fetchUsersSuccess(state, action: PayloadAction<any[]>): UserState {
+        fetchUsersSuccess(state: UserState, action: PayloadAction<any[]>): UserState {
             return {
                 loading: false,
                 error: null,
                 users: action.payload
             };
         },
-        fetchUsersError(state, action: PayloadAction<string>): UserState {
+        fetchUsersError(state: UserState, action: PayloadAction<string>): UserState {
             return {
                 loading: false,
                 error: action.payload,
