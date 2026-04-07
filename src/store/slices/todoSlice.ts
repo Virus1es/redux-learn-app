@@ -45,6 +45,9 @@ const todoSlice = createSlice({
 });
 
 export const {
-
+    fetchTodos,
+    fetchTodosSuccess,
+    fetchTodosError,
+    setTodoPage,
 } = todoSlice.actions;
 export default todoSlice.reducer;
