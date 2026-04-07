@@ -12,6 +12,7 @@ export const fetchTodosAction = (page = 1, limit = 10) => {
             dispatch(fetchTodosSuccess(response.data));
         } catch (e) {
             dispatch(fetchTodosError("Произошла ошибка при загрузке списка задач"));
+            console.error(e);
         }
     }
 }
