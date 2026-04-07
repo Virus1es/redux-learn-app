@@ -30,7 +30,7 @@ const TodoList: React.FC= () => {
     return (
         <div>
             {todos.map(todo =>
-                <div key={todo.id}>{todo.id}. {todo.name}</div>
+                <div key={todo.id}>{todo.id}. {todo.title}</div>
             )}
         </div>
     );
