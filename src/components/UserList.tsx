@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
 import {useAppSelector} from "../hooks/useAppSelector.ts";
-import {useAppDispatch} from "../hooks/useAppDispatch.ts";
-import {fetchUsersAction} from "../store/action-creators/user.ts";
+import {useActions} from "../hooks/useActions.ts";
+
 
 const UserList: React.FC = () => {
     const {users, loading, error} = useAppSelector(state => state.user);
 
-    const dispatch = useAppDispatch();
+    const {fetchUsersAction} = useActions();
 
     useEffect(() => {
-        dispatch(fetchUsersAction() as any);
+        fetchUsersAction();
     }, []);
 
     if (loading) {
